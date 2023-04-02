@@ -143,8 +143,51 @@
 // }
 // printID("number");
 
-function getFirstThree(x: string | number[]) {
-    return x.slice(0,3);
+// function getFirstThree(x: string | number[]) {
+    
+//     return x.slice(0,3);
+// }
+
+// console.log(getFirstThree([1,2,3,4,5,6,7,8,9,10]));
+
+//Generics
+
+
+// function logArray(arg: any[]) {
+//     console.log(arg)
+//     return arg;
+// }
+
+// function logAnything<T>(arg: T): T {
+//     console.log(arg)
+//     return arg;
+// }
+
+// logAnything([1]);
+
+interface HasAge {
+    age: number;
 }
 
-console.log(getFirstThree([1,2,3,4,5,6,7,8,9,10]));
+interface Player extends HasAge {
+    name: string;
+}
+
+function getOldest<T extends HasAge>(people: T[]): T {
+    return people.sort((a,b) => b.age - a.age)[0];
+}
+
+const people = [
+    {name: "John", age: 30},
+    {name: "Jane", age: 25},
+    {name: "Jack", age: 40}
+]
+
+
+
+const players: Player[] = [{name: "John", age: 30},
+{name: "Jane", age: 25},
+{name: "Jack", age: 40}]
+
+const person = getOldest(players);
+

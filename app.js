@@ -104,7 +104,26 @@
 //     }
 // }
 // printID("number");
-function getFirstThree(x) {
-    return x.slice(0, 3);
+// function getFirstThree(x: string | number[]) {
+//     return x.slice(0,3);
+// }
+// console.log(getFirstThree([1,2,3,4,5,6,7,8,9,10]));
+//Generics
+function logArray(arg) {
+    console.log(arg);
+    return arg;
 }
-console.log(getFirstThree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+function logAnything(arg) {
+    console.log(arg);
+    return arg;
+}
+logAnything([1]);
+function getOldest(people) {
+    return people.sort(function (a, b) { return b.age - a.age; })[0];
+}
+var people = [
+    { name: "John", age: 30 },
+    { name: "Jane", age: 25 },
+    { name: "Jack", age: 40 }
+];
+console.log(getOldest(people));
