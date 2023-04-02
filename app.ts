@@ -1,6 +1,6 @@
-let num1: number = 1;
+let num1 = "a";
 
-function calculate(num1, num2){
+function calculate(num1: number, num2: number){
     return num1 + num2;
 }
 
